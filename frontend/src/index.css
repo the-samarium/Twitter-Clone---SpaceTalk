@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* --- HSL Dark-First Global Theme & Scrollbars Added by Antigravity --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  background-color: #000000;
+  color: #e7e9ea;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  overflow-y: scroll;
+}
+
+/* Custom Scrollbar for independent scroll feed column */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2f3336;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d9bf0;
+}
+
+/* Glassmorphism/Frost Top Sticky Header filter */
+.sticky-header-blur {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 40;
+}
+
+/* Custom utility for absolute centering or sizing */
+.active-nav-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #1d9bf0;
+  border-radius: 9999px;
+}
+
+/* Custom expand/collapse transitions */
+.comment-drawer-transition {
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease-in-out;
+}
+/* --------------------------------------------------------------------- */
