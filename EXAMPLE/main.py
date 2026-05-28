@@ -1,16 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# --- Code Added/Changed by Antigravity ---
-# Import the async database instance and table initialization helper
+
 from database.db_config import database, init_db
 from router.post import router
 # -----------------------------------------
 
 app = FastAPI()
 
-# --- Code Added/Changed by Antigravity ---
-# Configure CORS middleware to allow requests from the React frontend running on port 5173
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

@@ -7,7 +7,6 @@ import {
   MoreHorizontal 
 } from "lucide-react";
 
-// --- LeftSidebar Component Modified by Antigravity ---
 export default function LeftSidebar({ darkMode, setDarkMode }) {
   return (
     <aside 

@@ -23,7 +23,6 @@ const formatTimestamp = (timestamp) => {
   return date.toLocaleDateString();
 };
 
-// --- PostCard Component Modified by Antigravity ---
 export default function PostCard({ post, darkMode }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [replyCount, setReplyCount] = useState(0);

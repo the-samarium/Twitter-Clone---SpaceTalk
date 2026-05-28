@@ -1,7 +1,6 @@
 import React from "react";
 import { Search } from "lucide-react";
 
-// --- RightSidebar Component Modified by Antigravity ---
 export default function RightSidebar({ darkMode }) {
   return (
     <aside 
@@ -74,4 +73,3 @@ export default function RightSidebar({ darkMode }) {
     </aside>
   );
 }
-// ---------------------------------------------------

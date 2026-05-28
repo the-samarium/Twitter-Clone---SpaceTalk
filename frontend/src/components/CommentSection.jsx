@@ -21,7 +21,6 @@ const formatTimestamp = (timestamp) => {
   return date.toLocaleDateString();
 };
 
-// --- CommentSection Component Modified by Antigravity ---
 export default function CommentSection({ postId, darkMode }) {
   const [comments, setComments] = useState([]);
   const [newCommentText, setNewCommentText] = useState("");

@@ -6,7 +6,6 @@ import PostComposer from "./components/PostComposer";
 import PostCard from "./components/PostCard";
 import { AlertCircle, RefreshCw } from "lucide-react";
 
-// --- App Component Redesigned by Antigravity ---
 export default function App() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

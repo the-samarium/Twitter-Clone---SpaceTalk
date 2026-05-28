@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { Image, BarChart2, Smile, Calendar, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// --- PostComposer Component Modified by Antigravity ---
 export default function PostComposer({ onPostCreated, darkMode }) {
   const [body, setBody] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

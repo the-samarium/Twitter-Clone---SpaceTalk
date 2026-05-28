@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// --- CreatePost Component Added by Antigravity ---
 export default function CreatePost({ onPostCreated }) {
   const [body, setBody] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// --- FeedHeader Component Modified by Antigravity ---
 export default function FeedHeader({ darkMode }) {
   const [activeTab, setActiveTab] = useState("for-you");
 
@@ -63,4 +62,3 @@ export default function FeedHeader({ darkMode }) {
     </header>
   );
 }
-// -------------------------------------------------
