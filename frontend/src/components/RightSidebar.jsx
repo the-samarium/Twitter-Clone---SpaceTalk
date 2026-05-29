@@ -12,17 +12,17 @@ export default function RightSidebar({ darkMode }) {
       {/* Sticky Search bar */}
       <div className={`sticky top-0 py-1 z-30 transition-colors duration-300 ${darkMode ? "bg-black" : "bg-white"}`}>
         <div 
-          className={`relative flex items-center rounded-full border border-transparent group transition-all duration-200 ${
+          className={`relative flex items-center rounded-sm border border-transparent group transition-all duration-200 ${
             darkMode 
-              ? "bg-[#16181c] focus-within:border-[#1d9bf0] focus-within:bg-black" 
-              : "bg-[#eff3f4] focus-within:border-[#1d9bf0] focus-within:bg-white"
+              ? "bg-[#16181c] focus-within:border-[#f97316] focus-within:bg-black" 
+              : "bg-[#eff3f4] focus-within:border-[#f97316] focus-within:bg-white"
           }`}
         >
-          <Search className="w-5 h-5 text-[#71767b] group-focus-within:text-[#1d9bf0] absolute left-4" />
+          <Search className="w-5 h-5 text-[#71767b] group-focus-within:text-[#f97316] absolute left-4" />
           <input
             type="text"
             placeholder="Search SpaceTalk"
-            className={`w-full bg-transparent py-3 pl-12 pr-4 rounded-full text-sm outline-none transition-colors ${
+            className={`w-full bg-transparent py-3 pl-12 pr-4 rounded-sm text-sm outline-none transition-colors ${
               darkMode ? "text-[#e7e9ea] placeholder-[#71767b]" : "text-[#0f1419] placeholder-[#536471]"
             }`}
           />
@@ -31,7 +31,7 @@ export default function RightSidebar({ darkMode }) {
 
       {/* Project Information Widget (Replaces trending and follow suggestions) */}
       <section 
-        className={`rounded-2xl border p-4 flex flex-col gap-4 transition-colors duration-300 ${
+        className={`rounded-sm border p-4 flex flex-col gap-4 transition-colors duration-300 ${
           darkMode ? "bg-[#16181c] border-[#2f3336]" : "bg-[#f7f9f9] border-[#eff3f4]"
         }`}
       >

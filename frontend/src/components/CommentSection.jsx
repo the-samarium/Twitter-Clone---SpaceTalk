@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Send } from "lucide-react";
 
-// Helper function to format timestamp
+// Helper function to format timestamp from SQLite (UTC string) into relative or absolute display
 const formatTimestamp = (timestamp) => {
   if (!timestamp) return "Just now";
-  
-  const date = new Date(timestamp);
+
+  // SQLite returns "2026-05-29 14:32:01.123456" with no timezone — append Z to treat as UTC
+  const normalized = timestamp.includes("T") ? timestamp : timestamp.replace(" ", "T") + "Z";
+  const date = new Date(normalized);
+  if (isNaN(date)) return timestamp; // fallback: show raw if parsing fails
+
   const now = new Date();
   const diffMs = now - date;
   const diffSecs = Math.floor(diffMs / 1000);
@@ -17,8 +21,9 @@ const formatTimestamp = (timestamp) => {
   if (diffMins < 60) return `${diffMins}m`;
   if (diffHours < 24) return `${diffHours}h`;
   if (diffDays < 7) return `${diffDays}d`;
-  
-  return date.toLocaleDateString();
+
+  // Older than a week: show formatted date e.g. "May 29, 2026"
+  return date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 };
 
 export default function CommentSection({ postId, darkMode }) {
@@ -89,11 +94,11 @@ export default function CommentSection({ postId, darkMode }) {
 
       {isLoading ? (
         <div className="flex justify-center items-center py-6 gap-2 text-[#71767b]">
-          <div className="w-5 h-5 border-2 border-transparent border-t-[#1d9bf0] rounded-full animate-spin"></div>
+          <div className="w-5 h-5 border-2 border-transparent border-t-[#f97316] rounded-full animate-spin"></div>
           <span className="text-xs">Loading replies...</span>
         </div>
       ) : comments.length === 0 ? (
-        <div className={`text-center py-6 text-sm italic rounded-xl border border-dashed ${
+        <div className={`text-center py-6 text-sm italic rounded-sm border border-dashed ${
           darkMode 
             ? "text-[#71767b] bg-[#16181c]/20 border-[#2f3336]" 
             : "text-[#536471] bg-[#f7f9f9]/50 border-[#eff3f4]"
@@ -111,20 +116,20 @@ export default function CommentSection({ postId, darkMode }) {
             <div key={comment.cid} className="flex gap-3 py-2 z-10 relative">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-[11px] shrink-0 border shadow-sm ${
                 darkMode 
-                  ? "bg-gradient-to-tr from-[#71767b] to-[#2f3336] text-white border-black" 
-                  : "bg-gradient-to-tr from-[#cfd9db] to-[#9ca3af] text-black border-white"
+                  ? "bg-linear-to-tr from-[#71767b] to-[#2f3336] text-white border-black" 
+                  : "bg-linear-to-tr from-[#cfd9db] to-[#9ca3af] text-black border-white"
               }`}>
                 U
               </div>
               <div 
-                className={`flex-1 flex flex-col min-w-0 border rounded-xl p-3 transition-colors duration-150 ${
+                className={`flex-1 flex flex-col min-w-0 border rounded-sm p-3 transition-colors duration-150 ${
                   darkMode 
                     ? "bg-[#16181c]/40 hover:bg-[#16181c]/70 border-[#2f3336]/60 text-[#e7e9ea]" 
                     : "bg-[#f7f9f9]/80 hover:bg-[#f7f9f9] border-[#eff3f4]/80 text-[#0f1419]"
                 }`}
               >
                 <div className="flex items-center justify-between text-xs mb-1">
-                  <span className="font-bold">Anonymous User</span>
+                  <span className="font-bold">Anonymous</span>
                   <div className="flex items-center gap-2">
                     <span className={darkMode ? "text-[#71767b]" : "text-[#536471]"}>#{comment.cid}</span>
                     <span className={darkMode ? "text-[#71767b]" : "text-[#536471]"}>· {formatTimestamp(comment.created_at)}</span>
@@ -143,10 +148,10 @@ export default function CommentSection({ postId, darkMode }) {
       <form onSubmit={handleSubmitComment} className="flex gap-2 items-center mt-1">
         <input
           type="text"
-          className={`flex-1 border rounded-full px-4 py-2 text-sm outline-none transition-all ${
+          className={`flex-1 border rounded-sm px-4 py-2 text-sm outline-none transition-all ${
             darkMode 
-              ? "bg-[#16181c] border-[#2f3336] text-[#e7e9ea] focus:border-[#1d9bf0] focus:bg-black" 
-              : "bg-[#eff3f4] border-[#eff3f4] text-[#0f1419] focus:border-[#1d9bf0] focus:bg-white placeholder-[#536471]"
+              ? "bg-[#16181c] border-[#2f3336] text-[#e7e9ea] focus:border-[#f97316] focus:bg-black" 
+              : "bg-[#eff3f4] border-[#eff3f4] text-[#0f1419] focus:border-[#f97316] focus:bg-white placeholder-[#536471]"
           }`}
           placeholder="Write a reply..."
           value={newCommentText}
@@ -155,7 +160,7 @@ export default function CommentSection({ postId, darkMode }) {
         />
         <button
           type="submit"
-          className="bg-[#1d9bf0]/10 hover:bg-[#1d9bf0] text-[#1d9bf0] hover:text-white border border-[#1d9bf0]/20 hover:border-transparent rounded-full p-2.5 transition-all duration-150 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+          className="bg-[#f97316]/10 hover:bg-[#f97316] text-[#f97316] hover:text-white border border-[#f97316]/20 hover:border-transparent rounded-sm p-2.5 transition-all duration-150 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
           disabled={isSubmitting || !newCommentText.trim()}
         >
           <Send className="w-4 h-4" />

@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <div 
-      className={`min-h-screen w-full flex justify-center transition-colors duration-300 selection:bg-[#1d9bf0]/30 ${
+      className={`min-h-screen w-full flex justify-center transition-colors duration-300 selection:bg-[#f97316]/30 ${
         darkMode ? "bg-black text-[#e7e9ea]" : "bg-white text-[#0f1419]"
       }`}
     >
@@ -78,9 +78,9 @@ export default function App() {
                       darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"
                     }`} />
                     <div className="flex-1 flex flex-col gap-3">
-                      <div className={`h-4 rounded w-1/3 ${darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"}`} />
-                      <div className={`h-4 rounded w-full ${darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"}`} />
-                      <div className={`h-4 rounded w-5/6 ${darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"}`} />
+                      <div className={`h-4 rounded-sm w-1/3 ${darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"}`} />
+                      <div className={`h-4 rounded-sm w-full ${darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"}`} />
+                      <div className={`h-4 rounded-sm w-5/6 ${darkMode ? "bg-[#16181c]" : "bg-[#eff3f4]"}`} />
                     </div>
                   </div>
                 ))}
@@ -92,7 +92,7 @@ export default function App() {
                 <p className="text-sm font-bold max-w-xs leading-normal">{error}</p>
                 <button 
                   onClick={fetchPosts}
-                  className="bg-[#1d9bf0] hover:bg-[#1a8cd8] text-white rounded-full font-bold px-6 py-2.5 text-sm transition-all duration-150 flex items-center gap-2"
+                  className="bg-[#ea580c] hover:bg-[#c2410c] text-white rounded-sm font-bold px-6 py-2.5 text-sm transition-all duration-150 flex items-center gap-2"
                 >
                   <RefreshCw className="w-4 h-4" />
                   Retry Connection

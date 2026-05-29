@@ -35,7 +35,7 @@ export default function FeedHeader({ darkMode }) {
             For You
           </span>
           {activeTab === "for-you" && (
-            <div className="absolute bottom-0 w-16 h-1 bg-[#1d9bf0] rounded-full" />
+            <div className="absolute bottom-0 w-16 h-1 bg-[#f97316] rounded-full" />
           )}
         </button>
 
@@ -54,7 +54,7 @@ export default function FeedHeader({ darkMode }) {
             Following
           </span>
           {activeTab === "following" && (
-            <div className="absolute bottom-0 w-16 h-1 bg-[#1d9bf0] rounded-full" />
+            <div className="absolute bottom-0 w-16 h-1 bg-[#f97316] rounded-full" />
           )}
         </button>
       </div>

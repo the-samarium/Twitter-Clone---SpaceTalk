@@ -58,7 +58,7 @@ export default function PostComposer({ onPostCreated, darkMode }) {
       }`}
     >
       {/* Avatar block */}
-      <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#1d9bf0] to-[#8b5cf6] flex items-center justify-center font-bold text-white shadow-md text-sm shrink-0">
+      <div className="w-10 h-10 rounded-full bg-linear-to-tr from-[#f97316] via-[#ea580c] to-[#f59e0b] flex items-center justify-center font-bold text-white shadow-md text-sm shrink-0">
         U
       </div>
 
@@ -84,7 +84,7 @@ export default function PostComposer({ onPostCreated, darkMode }) {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               exit={{ scaleX: 0 }}
-              className="h-[1px] bg-[#1d9bf0] origin-left w-full mb-1"
+              className="h-[1px] bg-[#f97316] origin-left w-full mb-1"
             />
           )}
         </AnimatePresence>
@@ -92,29 +92,29 @@ export default function PostComposer({ onPostCreated, darkMode }) {
         {/* Action bar and submit controls */}
         <div className="flex items-center justify-between mt-2 pt-2 border-t border-transparent">
           {/* Media upload mock icons */}
-          <div className="flex items-center gap-1.5 text-[#1d9bf0]">
-            <button type="button" className={`p-2 rounded-full transition-colors cursor-pointer active:scale-95 duration-100 ${
-              darkMode ? "hover:bg-[#1d9bf0]/10" : "hover:bg-[#1d9bf0]/8"
+        <div className="flex items-center gap-1.5 text-[#f97316]">
+            <button type="button" className={`p-2 rounded-sm transition-colors cursor-pointer active:scale-95 duration-100 ${
+              darkMode ? "hover:bg-[#f97316]/10" : "hover:bg-[#f97316]/8"
             }`}>
               <Image className="w-[19px] h-[19px] stroke-[2.2]" />
             </button>
-            <button type="button" className={`p-2 rounded-full transition-colors cursor-pointer active:scale-95 duration-100 ${
-              darkMode ? "hover:bg-[#1d9bf0]/10" : "hover:bg-[#1d9bf0]/8"
+            <button type="button" className={`p-2 rounded-sm transition-colors cursor-pointer active:scale-95 duration-100 ${
+              darkMode ? "hover:bg-[#f97316]/10" : "hover:bg-[#f97316]/8"
             }`}>
               <BarChart2 className="w-[19px] h-[19px] stroke-[2.2]" />
             </button>
-            <button type="button" className={`p-2 rounded-full transition-colors cursor-pointer active:scale-95 duration-100 ${
-              darkMode ? "hover:bg-[#1d9bf0]/10" : "hover:bg-[#1d9bf0]/8"
+            <button type="button" className={`p-2 rounded-sm transition-colors cursor-pointer active:scale-95 duration-100 ${
+              darkMode ? "hover:bg-[#f97316]/10" : "hover:bg-[#f97316]/8"
             }`}>
               <Smile className="w-[19px] h-[19px] stroke-[2.2]" />
             </button>
-            <button type="button" className={`p-2 rounded-full transition-colors cursor-pointer active:scale-95 duration-100 ${
-              darkMode ? "hover:bg-[#1d9bf0]/10" : "hover:bg-[#1d9bf0]/8"
+            <button type="button" className={`p-2 rounded-sm transition-colors cursor-pointer active:scale-95 duration-100 ${
+              darkMode ? "hover:bg-[#f97316]/10" : "hover:bg-[#f97316]/8"
             }`}>
               <Calendar className="w-[19px] h-[19px] stroke-[2.2]" />
             </button>
-            <button type="button" className={`p-2 rounded-full transition-colors cursor-pointer active:scale-95 duration-100 ${
-              darkMode ? "hover:bg-[#1d9bf0]/10" : "hover:bg-[#1d9bf0]/8"
+            <button type="button" className={`p-2 rounded-sm transition-colors cursor-pointer active:scale-95 duration-100 ${
+              darkMode ? "hover:bg-[#f97316]/10" : "hover:bg-[#f97316]/8"
             }`}>
               <MapPin className="w-[19px] h-[19px] stroke-[2.2]" />
             </button>
@@ -139,7 +139,7 @@ export default function PostComposer({ onPostCreated, darkMode }) {
                     className={`stroke-[2.5] transition-all duration-150 ${
                       charsLeft <= 20 
                         ? (charsLeft < 0 ? "stroke-[#ef4444]" : "stroke-[#f59e0b]") 
-                        : "stroke-[#1d9bf0]"
+                        : "stroke-[#f97316]"
                     }`}
                     fill="transparent"
                     strokeDasharray={2 * Math.PI * 9}
@@ -160,7 +160,7 @@ export default function PostComposer({ onPostCreated, darkMode }) {
             <motion.button
               whileTap={{ scale: 0.96 }}
               type="submit"
-              className="bg-[#1d9bf0] hover:bg-[#1a8cd8] disabled:opacity-50 text-white rounded-full font-bold px-5 py-2 text-sm shadow-sm transition-all"
+              className="bg-[#ea580c] hover:bg-[#c2410c] disabled:opacity-50 text-white rounded-sm font-bold px-5 py-2 text-sm shadow-sm transition-all"
               disabled={isSubmitting || !body.trim() || charsLeft < 0}
             >
               {isSubmitting ? "Posting..." : "Post"}
